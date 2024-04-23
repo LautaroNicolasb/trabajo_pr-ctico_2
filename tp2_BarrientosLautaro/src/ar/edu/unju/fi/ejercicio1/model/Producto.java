@@ -7,6 +7,13 @@ public class Producto {
 	private OrigenFabricacion origenFabricacion;
 	private Categoria categoria;
 	
+
+	
+	
+	public Producto() {
+
+	}
+
 	public Producto(String codigo, String descripcion, int precioUnitario, OrigenFabricacion origenFabricacion,
 			Categoria categoria) {
 		this.codigo = codigo;
@@ -70,5 +77,13 @@ public class Producto {
 		ELECTROHOGAR,
 		HERRAMIENTAS
 	}
+
+	@Override
+	public String toString() {
+		return "Producto [codigo=" + codigo + ", descripcion=" + descripcion + ", precioUnitario=" + precioUnitario
+				+ ", origenFabricacion=" + origenFabricacion + ", categoria=" + categoria + "]";
+	}
+	
+	
 	
 }
