@@ -1,7 +1,7 @@
 package ar.edu.unju.fi.ejercicio1.main;
 
 import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import ar.edu.unju.fi.ejercicio1.model.Producto;
@@ -31,14 +31,14 @@ public class Main {
 					case 2:
 						mostrarProducto();break;
 					case 3:
-						//modificarProducto();break;
+						modificarProducto();break;
 					case 4:
 						System.out.println("FIN DEL PROGRAMA");break;
 					default:
 						System.out.println("Opción incorrecta. Por favor, ingrese una opción válida.");
 				}
 				
-			}while(opcion!=9);
+			}while(opcion!=4);
 		
 	}
 	
@@ -140,6 +140,100 @@ public class Main {
 		  }
 	}
 	
+	public static void modificarProducto() {
+		try {
+			System.out.println("<<<<<Modificar datos del producto>>>>>");
+			System.out.println("Ingrese el código del producto: ");
+			String codigo = scanner.nextLine();
+	        int i=1;
+			boolean productoEncontrado = false;
+			for(Producto producto : productos) {
+				if (producto.getCodigo().equals(codigo)) {
+					System.out.println("*****Ingrese los nuevos datos del producto*****");
+					System.out.println("Descripción: ");
+					String descripcion = scanner.nextLine();
+					producto.setDescripcion(descripcion);
+					System.out.println("Precio Unitario: ");
+					double precioUnitario = scanner.nextDouble();
+					
+					System.out.println("----- Origen de fabricación -----\n");
+					for(Producto.OrigenFabricacion origen : Producto.OrigenFabricacion.values()) {
+						System.out.println(i+" - "+origen);
+						i++;
+					}
+					System.out.println("Elija una opción: ");
+					int opcion = scanner.nextInt();
+					System.out.println("\n");
+					scanner.nextLine();
+					Producto.OrigenFabricacion origen = null;
+					while(origen == null){ 
+						switch (opcion) {
+						case 1:
+							origen = Producto.OrigenFabricacion.ARGENTINA;break;
+						case 2:
+							origen = Producto.OrigenFabricacion.CHINA;break;
+						case 3:
+							origen = Producto.OrigenFabricacion.BRASIL;break;
+						case 4:
+							origen = Producto.OrigenFabricacion.URUGUAY;break;
+						default:
+							System.out.println("Erro. Elija una opción");
+						}
+						if(origen == null ) {
+							System.out.println("Elija una opción: ");
+							opcion = scanner.nextInt();
+							scanner.nextLine();
+						}
+						producto.setOrigenFabricacion(origen);
+					}
+					
+					i=1;
+					System.out.println("----- Categoría -----\n");
+					for( Producto.Categoria categoria : Producto.Categoria.values() ) {
+						System.out.println(i+" - "+categoria);
+						i++;
+					}
+					System.out.println("\n");
+					System.out.println("Elija una opción: ");
+					opcion = scanner.nextInt();
+					scanner.nextLine();
+					System.out.println("\n");
+					Producto.Categoria categoria = null;
+					while(categoria == null) {
+						switch (opcion) {
+						case 1:
+							categoria = Producto.Categoria.TELEFONIA;break;
+						case 2:
+							categoria = Producto.Categoria.INFORMATICA;break;
+						case 3:
+							categoria = Producto.Categoria.ELECTROHOGAR;break;
+						case 4:
+							categoria = Producto.Categoria.HERRAMIENTAS;break;
+						default:
+							System.out.println("Erro. Elija una opción");
+						}
+						if(categoria == null ) {
+							System.out.println("Elija una opción: ");
+							opcion = scanner.nextInt();
+							scanner.nextLine();
+						}
+						producto.setCategoria(categoria);
+					}
+					
+					productoEncontrado = true;
+					break;
+			}
+			
+			if (!productoEncontrado) {
+				System.out.println("El jugador no se econtró en la lista.");
+			}
+			}
+		}catch(InputMismatchException e) {
+			System.out.println("Error: Se esparaba un valor numérico para estatura o peso."); 
+		}catch(Exception e) {
+			System.out.println("Error inespaerado: "+e.getMessage());
+		}
+	}
 	
 	
 	
