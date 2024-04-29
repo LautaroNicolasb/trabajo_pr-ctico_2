@@ -3,18 +3,14 @@ package ar.edu.unju.fi.ejercicio1.model;
 public class Producto {
 	private String codigo;
 	private String descripcion;
-	private int precioUnitario;
+	private double precioUnitario;
 	private OrigenFabricacion origenFabricacion;
 	private Categoria categoria;
 	
 
-	
-	
-	public Producto() {
 
-	}
-
-	public Producto(String codigo, String descripcion, int precioUnitario, OrigenFabricacion origenFabricacion,
+	
+	public Producto(String codigo, String descripcion, double precioUnitario, OrigenFabricacion origenFabricacion,
 			Categoria categoria) {
 		this.codigo = codigo;
 		this.descripcion = descripcion;
@@ -39,11 +35,11 @@ public class Producto {
 		this.descripcion = descripcion;
 	}
 
-	public int getPrecioUnitario() {
+	public double getPrecioUnitario() {
 		return precioUnitario;
 	}
 
-	public void setPrecioUnitario(int precioUnitario) {
+	public void setPrecioUnitario(double precioUnitario) {
 		this.precioUnitario = precioUnitario;
 	}
 
@@ -67,8 +63,7 @@ public class Producto {
 		ARGENTINA,
 		CHINA,
 		BRASIL,
-		URUGUAY
-		
+		URUGUAY,
 	}
 	
 	public enum Categoria{
@@ -80,8 +75,8 @@ public class Producto {
 
 	@Override
 	public String toString() {
-		return "Producto [codigo=" + codigo + ", descripcion=" + descripcion + ", precioUnitario=" + precioUnitario
-				+ ", origenFabricacion=" + origenFabricacion + ", categoria=" + categoria + "]";
+		return "Producto: "+ "Codigo = " + codigo + ", Descripcion = " + descripcion + ", Precio Unitario = " + precioUnitario
+				+ ", Origen de Fabricacion = " + origenFabricacion + ", Categoria = " + categoria ;
 	}
 	
 	
