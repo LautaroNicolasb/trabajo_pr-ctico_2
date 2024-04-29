@@ -225,11 +225,11 @@ public class Main {
 			}
 			
 			if (!productoEncontrado) {
-				System.out.println("El jugador no se econtró en la lista.");
+				System.out.println("El producto no se econtró en la lista.");
 			}
 			}
 		}catch(InputMismatchException e) {
-			System.out.println("Error: Se esparaba un valor numérico para estatura o peso."); 
+			System.out.println("Error: Se esparaba un valor numérico para el Precio Unitario."); 
 		}catch(Exception e) {
 			System.out.println("Error inespaerado: "+e.getMessage());
 		}
