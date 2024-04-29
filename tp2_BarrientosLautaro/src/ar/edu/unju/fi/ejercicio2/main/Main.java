@@ -3,10 +3,12 @@ package ar.edu.unju.fi.ejercicio2.main;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 import ar.edu.unju.fi.ejercicio2.constantes.Mes;
 import ar.edu.unju.fi.ejercicio2.model.Efemeride;
+
 
 public class Main {
 	
@@ -62,10 +64,9 @@ public class Main {
 						}
 					 Mes mes = Mes.values()[numMes - 1];
 					 System.out.println("Día:");
-				     String dia = scanner.next();
+				     String dia = scanner.nextLine();
 				     System.out.println("Detalle: ");
 				     String detalle = scanner.nextLine();
-				     scanner.nextLine();
 				     efemerides.add(new Efemeride(codigo,mes,dia,detalle));
 				     System.out.println("Alta de efemeride correcta\n");
 		}catch(InputMismatchException e) {
@@ -94,25 +95,61 @@ public class Main {
 	}
 	
 	public static void eliminarEfemeride() {
-		if (efemerides.isEmpty()) {
-			System.out.println("Lista vacía");
-		}else {
-			System.out.println("Ingrese el código del efeméride a eliminar: ");
+		
+		Iterator<Efemeride> iterator = efemerides.iterator();
+		boolean eliminado = false;
+			if (efemerides.isEmpty()) {
+				System.out.println("Lista vacía");
+			}else {
+				System.out.println("Ingrese el código del efeméride a eliminar: ");
+				String codigo = scanner.nextLine();
+				while (iterator.hasNext()) {
+					Efemeride efemeride = iterator.next();
+					if(efemeride.getCodigo().equals(codigo)) {
+						iterator.remove();
+						System.out.println("Se eliminó el jugador"+efemeride);
+						eliminado = true;
+					}
+				}
+			}
+			if (!eliminado) {
+				System.out.println("No se econtró el efeméride en la lista.");
+			}
+		}
+	
+	public static void modificarEfemeride() {
+		try {	
+			System.out.println("<<<<< Modificar datos del efeméride >>>>>");
+			System.out.println("Ingrese el código del efeméride: ");
 			String codigo = scanner.nextLine();
-			boolean eliminado = false;
-			for(int i = 0; i<efemerides.size(); i++) {
-				if (efemerides.get(i).getCodigo().equals(codigo)) {
-					efemerides.remove(i);
-					eliminado = true;
-					System.out.println("Se eliminó el efeméride.");
+			boolean efemerideEncontrado = false;
+			for(Efemeride efemeride : efemerides) {
+				if (efemeride.getCodigo().equals(codigo)) {
+					System.out.println("*****Ingrese los nuevos datos del efeméride*****");
+					System.out.println("Mes: ");
+					int numMes = scanner.nextInt();
+					Mes mes = Mes.values()[numMes];
+					efemeride.setMes(mes);
+					System.out.println("Dia: ");
+					String dia = scanner.nextLine();
+					efemeride.setDia(dia);
+					System.out.println("Detalle: ");
+					String detalle = scanner.nextLine();
+					efemeride.setDetalle(detalle);
+					efemerideEncontrado = true;
 					break;
 				}
 			}
+			
+			if (!efemerideEncontrado) {
+				System.out.println("El efemeride no se econtró en la lista.");
+			}
+			
+		}catch(InputMismatchException e) {
+			System.out.println("Error: Se esparaba un valor numérico."); 
+		}catch(Exception e) {
+			System.out.println("Error inespaerado: "+e.getMessage());
 		}
-	}
-	
-	public static void modificarEfemeride() {
-		
 	}
 
 }
