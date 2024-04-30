@@ -30,7 +30,7 @@ public class Main {
                     modificarPosicion();
                     break; 
                 case 4:
-                   // eliminarJugador();
+                   eliminarJugador();
                     break;
                 case 5:
                     System.out.println("FIN DEL PROGRAMA");
