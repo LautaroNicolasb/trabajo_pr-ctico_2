@@ -118,8 +118,8 @@ public class Main {
 				}
 			}
 			
-			
-			productos.add(new Producto(codigo,descripcion,precioUnitario,origen,categoria));
+			Boolean disponible = true;
+			productos.add(new Producto(codigo,descripcion,precioUnitario,origen,categoria, disponible));
 			System.out.println("Se creo el producto.");
 			scanner.nextLine();
 		}catch(Exception  e) {
