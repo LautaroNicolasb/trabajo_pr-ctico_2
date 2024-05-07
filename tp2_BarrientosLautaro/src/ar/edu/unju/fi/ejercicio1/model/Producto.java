@@ -83,13 +83,16 @@ public class Producto {
 		ELECTROHOGAR,
 		HERRAMIENTAS
 	}
+	
+	public boolean isDisponible(boolean disponible) {
+        return disponible;
+    }
 
 	@Override
 	public String toString() {
 		return "Producto: "+ "Codigo = " + codigo + ", Descripcion = " + descripcion + ", Precio Unitario = " + precioUnitario
 				+ ", Origen de Fabricacion = " + origenFabricacion + ", Categoria = " + categoria ;
 	}
-
 	
 	
 	
