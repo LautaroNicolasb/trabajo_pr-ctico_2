@@ -17,7 +17,7 @@ public class Main {
 		
 		public static void main(String[] args) {
 			//precargar productos 
-			ArrayList<Producto> productos = precargarProductos();
+			List<Producto> productos = precargarProductos();
 			//menú de opciones 
 			Scanner  scanner = new Scanner(System.in);
 			
@@ -38,19 +38,19 @@ public class Main {
 	                    mostrarProductosDisponibles(productos);
 	                    break;
 	                case 2:
-	                   // mostrarProductosNoDisponibles(productos);
+	                    mostrarProductosNoDisponibles(productos);
 	                    break;
 	                case 3:
-	                    //productos = incrementarPrecios(productos);
+	                    productos = incrementarPrecios(productos);
 	                    break;
 	                case 4:
-	                    //mostrarProductosElectrohogarDisponibles(productos);
+	                    mostrarProductosElectrohogarDisponibles(productos);
 	                    break;
 	                case 5:
-	                    //ordenarProductosPorPrecioDescendente(productos);
+	                    ordenarProductosPorPrecioDescendente(productos);
 	                    break;
 	                case 6:
-	                    //mostrarNombresEnMayusculas(productos);
+	                    mostrarNombresEnMayusculas(productos);
 	                    break;
 	                default:
 	                    System.out.println("Opción inválida. Por favor, seleccione una opción válida.");
