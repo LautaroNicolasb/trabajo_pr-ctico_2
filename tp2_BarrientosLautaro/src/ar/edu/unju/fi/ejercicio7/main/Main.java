@@ -2,12 +2,14 @@ package ar.edu.unju.fi.ejercicio7.main;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import ar.edu.unju.fi.ejercicio1.model.Producto;
+
 
 public class Main {
 
 	public static Scanner scanner = new Scanner(System.in);
 	public static void main(String[] args) {
+		
+	
 		//precargar productos 
 		ArrayList<Producto> productos = precargarProductos();
 		//menú de opciones 
@@ -25,7 +27,7 @@ public class Main {
                     mostrarProductos(productos);
                     break;
                 case 2:
-                    realizarCompra(productos);
+                    //realizarCompra(productos);
                     break;
                 case 3:
                     System.out.println("Fin del programa.");
