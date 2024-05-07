@@ -1,4 +1,5 @@
 package ar.edu.unju.fi.ejercicio1.model;
+import ar.edu.unju.fi.ejercicio7.main.*;
 
 public class Producto {
 	private String codigo;
