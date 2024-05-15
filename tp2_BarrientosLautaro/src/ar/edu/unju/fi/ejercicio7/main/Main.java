@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 import ar.edu.unju.fi.ejercicio1.model.Producto;
 
 public class Main {
-		
+		//El ejercicio está completo
 		public static Scanner scanner = new Scanner(System.in);
 		
 		public static void main(String[] args) {
@@ -55,7 +55,7 @@ public class Main {
 	                default:
 	                    System.out.println("Opción inválida. Por favor, seleccione una opción válida.");
 	            }
-			}while(opcion != 7);
+			}while(opcion != 7); 
 		}
 		
 		//funcion para precargar la lista
@@ -203,5 +203,4 @@ public class Main {
 		                .forEach(System.out::println);
 		    }
 		
-
 }
